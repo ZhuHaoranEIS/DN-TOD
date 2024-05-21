@@ -25,19 +25,22 @@ Install:
 Note that this repository is based on the [MMDetection](https://github.com/open-mmlab/mmdetection). Assume that your environment has satisfied the above requirements, please follow the following steps for installation.
 
 ```shell script
-git clone xxx
-cd xxx
+git clone https://github.com/ZhuHaoranEIS/DN-TOD.git
+cd DN-TOD
 pip install -r requirements/build.txt
 python setup.py develop
 ```
+## Main Contributions
+
+- We investigate the impact of different types of label noise in tiny object detection
+- We propose a DeNoising Tiny Object Detector (DNTOD) that performs robust object detection under label noise.
+
 ## Prepare datasets
 
-Please refer to [AI-TOD-v2.0](https://github.com/Chasel-Tsui/mmdet-aitod) for AI-TOD-v2.0 and AI-TOD-v1.0 dataset.
+- Please refer to [AI-TOD](https://github.com/Chasel-Tsui/mmdet-aitod) for AI-TOD-v2.0 and AI-TOD-v1.0 dataset.
 
 ```shell
 DN-TOD
-├── mmdet
-├── tools
 ├── configs
 ├── data
 │   ├── AI-TOD-v2
@@ -50,5 +53,33 @@ DN-TOD
 │   │   ├── val
 │   │   │    │─── ***.png
 │   │   │    │─── ***.png
+├── mmdet
+```
+- Generate noisy annotations:
+
+``` shell
+# generate noisy AI-TOD-v2.0 (e.g., 10%-40% all types of noise)
+'''
+  noise_level:
+  0.1, 0.2, 0.3, 0.4 ...
+  noise_type:
+  first:  missing labels
+  second: inaccurate bounding boxes
+  third:  class shifts
+  forth:  extra labels
+  st:     inaccurate bounding boxes + class shifts
+  all:    missing labels + inaccurate bounding boxes + class shifts + extra labels
+'''
+
+python tools/noise_generator/inject_noise.py --noise-level 0.1 0.2 0.3 0.4 \
+--noise-types first second third forth st all \
+--clean-path /home/zhuhaoran/DN-TOD/tools/noise_generator/clean_json/aitodv2_train.json \
+--store-path /home/zhuhaoran/DN-TOD/tools/noise_generator/noisy_json
+
+```
+
+## noise influence
+
+
 
 
