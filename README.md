@@ -91,5 +91,39 @@ python tools/noise_generator/inject_noise.py --noise-level 0.1 0.2 0.3 0.4 \
 <img src="https://github.com/ZhuHaoranEIS/DN-TOD/blob/main/figures/noise_influence.png" width="700px">
 </div>
 
+## Training
+
+All models of DN-TOD are trained with a total batch size of 1 (can be adjusted following [MMDetection](https://github.com/open-mmlab/mmdetection)). 
+
+- To train DN-TOD on AI-TOD-v2.0, run
+
+```shell script
+# For inaccurate bounding boxes under 10% noise
+python tools/train.py inaccurate_bounding_boxes/noise_0.1.py --gpu-id 0
+
+# For class shifts under 10% noise
+python tools/train.py class_shifts/noise_0.1.py --gpu-id 0
+
+# For mixed noise under 10% noise
+python tools/train.py mixed/noise_0.1.py --gpu-id 0
+
+```
+Please refer to 
+[inaccurate_bounding_boxes/noise_0.1.py](https://github.com/ZhuHaoranEIS/DN-TOD/blob/main/configs/DN-TOD-FCOS/inaccurate_bounding_boxes_noise/noise_0.1.py),  
+[class_shifts/noise_0.1.py](https://github.com/ZhuHaoranEIS/DN-TOD/blob/main/configs/DN-TOD-FCOS/class_shifts_noise/noise_0.1.py), 
+[mixed_shifts/noise_0.1.py](https://github.com/ZhuHaoranEIS/DN-TOD/blob/main/configs/DN-TOD-FCOS/mixed_noise/noise_0.1.py)
+for model configuration
+
+## Inference
+
+- Modify [test.py](https://github.com/ZhuHaoranEIS/DN-TOD/blob/main/tools/test.py)
+
+```/path/to/model_config```: modify it to the path of model config, e.g., ```.configs/DN-TOD-FCOS/inaccurate_bounding_boxes_noise/noise_0.1.py```
+
+```/path/to/model_checkpoint```: modify it to the path of model checkpoint
 
 
+- Run
+```
+python tools/test.py inaccurate_bounding_boxes/noise_0.1.py /path/to/model_checkpoint --eval bbox
+```
