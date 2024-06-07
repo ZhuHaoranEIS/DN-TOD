@@ -157,7 +157,7 @@ Table 1. Performance of baseline methods and our proposed method on the [AI-TOD-
 |                       | Faster R-CNN* w/ CLC              | 23.4          | 24.1          | **5.9**      | **36.4**      | **20.0**      | **8.7**       | 12.4          | 2.3          | **16.6**      |
 
 Table 2. Performance of baseline methods and our proposed method on the [AI-TOD-v2.0](https://github.com/jwwangchn/AI-TOD) **Validation Set:** under different levels of inaccurate bounding boxes.
-| **Stages**                         | **Method**                             | **Clean**     |                                     |**Noise Level**|               |               |
+| **Stages**                         | **Method**                             | **Clean**     |  **Noisy**                          |**Noisy**      |   **Noisy**   | **Noisy**     |
 |------------------------------------|----------------------------------------|---------------|-------------------------------------|---------------|---------------|---------------|
 |                                    |                                        | **0%**        | **10%**                             | **20%**       | **30%**       | **40%**       |
 | One-stage Methods                  | FCOS*                                  | 34.9          | 34.7                                | 30.2          | 24.3          | 18.4          |
@@ -175,7 +175,7 @@ Table 2. Performance of baseline methods and our proposed method on the [AI-TOD-
 
 
 Table 3. Performance of baseline methods and our proposed method on the [AI-TOD-v2.0](https://github.com/jwwangchn/AI-TOD) **Validation Set:** under different levels of mixed noise.
-| **Stages**                         | **Method**                             | **Clean**     |                                     |**Noise Level**|               |               |
+| **Stages**                         | **Method**                             | **Clean**     | **Noisy**                           |**Noisy**      | **Noisy**     |**Noisy**      |
 |------------------------------------|----------------------------------------|---------------|-------------------------------------|---------------|---------------|---------------|
 |                                    |                                        | **0%**        | **10%**                             | **20%**       | **30%**       | **40%**       |
 |  One-stage Methods                 | FCOS*                                  | 34.9          | 33.0                                | 28.5          | 24.9          | 12.7          |
