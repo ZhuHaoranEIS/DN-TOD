@@ -2,7 +2,9 @@
 This is the official implementation of the paper "Robust Tiny Object Detection in Aerial Images amidst Label Noise". [arxiv](https://arxiv.org/abs/2401.08056)
 
 ## :white_check_mark: Updates
-* **`May. 21th, 2024`**: Update: **Important!** we release the **noisy datasets** and **FCOS w/ DN-TOD** model. The **Faster-RCNN w/ DN-TOD** model will be released soon!
+* **`May. 21th, 2024`**: Update: **Important!** we release the **noisy datasets** and **FCOS w/ DN-TOD** model.
+* **`Aug. 11th, 2024`**: Update: we have made **all training configuration** files publicly available! These files include OAMIL, SSDDet, and Faster R-CNN w/ DN-TOD!
+* **`Aug. 11th, 2025`**: **If you have any questions, feel free to ask !!! If you need any model code related to the paper, please feel free to leave a message in the Issue section or email me at zhuhaoran@whu.edu.cn. I will respond promptly.**
 
 ## Introduction
 DN-TOD is an effective denoising algorithm that can be integrated into either one-stage or two-stage algorithms to enhance the network's robustness against noise.
